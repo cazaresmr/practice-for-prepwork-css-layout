@@ -1,69 +1,168 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="layout.css">
-    </head>
-    <body>
-        <form action="/form-handling-url" method="post">
-            <fieldset>
-            <legend>Add user</legend>
-        
-            <div>
-                <label for="firstName">First name</label>
-                <input type="text" id="firstName" name="first_name">
-            </div>
-        
-            <div>
-                <label for="lastName">Last name</label>
-                <input type="text" id="lastName" name="last_name">
-            </div>
-        
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email_address">
-            </div>
-        
-            <div>
-                <label for="role">Status</label>
-                <select id="role" name="user_role_name">
-                <option value="student">Student</option>
-                <option value="instructor">Instructor</option>
-                <option value="guest">Guest</option>
-                </select>
-            </div>
-            
-            <div>
-                <p>Choose your favorite Web language:</p>
-                <input type="radio" id="html" name="fav_language" value="HTML">
-                <label for="html">HTML</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">CSS</label><br>
-                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                <label for="javascript">JavaScript</label>
-            </div>
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="layout.css" /> -->
+    <style>
+      form {
+        width: 60%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+      }
 
-            <div>
-                <label for="comments">Comments</label>
-                <textarea id="comments" name="comments"></textarea>
-            </div>
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
 
-            <div>
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date">
-            </div>
+      legend {
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 1.2em;
+      }
 
-            <div>
-                <input type="checkbox" id="signup" name="signup" value="Signup">
-                <label for="signup">Sign up for news letter</label><br>
-                <input type="checkbox" id="terms" name="terms" value="Terms">
-                <label for="terms"> Agree to terms and conditions</label>
-            </div>
-        
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-        
-            </fieldset>
-        </form>
-    </body>
+      label {
+        display: block;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea,
+      select,
+      input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      select,
+      input[type="date"] {
+        width: 48%; /* Adjusted to 48% for better alignment with labels */
+        display: inline-block;
+        margin-right: 4%; /* Added margin for separation */
+      }
+
+      .role-date {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      .radio-group,
+      .checkbox-group {
+        margin-bottom: 12px;
+        text-align: center;
+      }
+
+      .radio-group label,
+      .checkbox-group label {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .checkbox-group {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      div p {
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      button {
+        background: #fff;
+        width: 100px;
+        cursor: pointer;
+        margin: 0 auto;
+        display: block;
+      }
+
+      form select,
+      form input[type="date"],
+      .role-date {
+        width: 42%;
+        display: inline-block;
+        margin-right: 4%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/form-handling-url" method="post">
+      <fieldset>
+        <legend>Add user</legend>
+
+        <div>
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="first_name" />
+        </div>
+
+        <div>
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="last_name" />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email_address" />
+        </div>
+
+        <div class="role role-date">
+          <label for="role">Status</label>
+          <select id="role" name="user_role_name">
+            <option value="student">Student</option>
+            <option value="instructor">Instructor</option>
+            <option value="guest">Guest</option>
+          </select>
+        </div>
+        <div class="role role-date">
+          <label for="date role-date">Date</label>
+          <input type="date" id="date" name="date" />
+        </div>
+
+        <div>
+          <p>Choose your favorite Web language:</p>
+          <div class="radio-group">
+            <input type="radio" id="html" name="fav_language" value="HTML" />
+            <label for="html">HTML</label>
+            <input type="radio" id="css" name="fav_language" value="CSS" />
+            <label for="css">CSS</label>
+            <input
+              type="radio"
+              id="javascript"
+              name="fav_language"
+              value="JavaScript"
+            />
+            <label for="javascript">JavaScript</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="comments">Comments</label>
+          <textarea id="comments" name="comments"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="signup" name="signup" value="Signup" />
+          <label for="signup">Sign up for news letter</label><br />
+          <input type="checkbox" id="terms" name="terms" value="Terms" />
+          <label for="terms"> Agree to terms and conditions</label>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
 </html>
